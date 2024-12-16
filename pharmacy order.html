@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="./favicon_io/site.webmanifest">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHARMACY</title>
+    <style>
+        /* General Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color:rgb(217, 245, 253);
+        }
+        
+        header {
+            width: 100%;
+            border-bottom: 2px solid #0e0e0e;
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: lightskyblue;
+        }
+        
+        .logo img {
+            margin-left: 100px;
+            height: 100px;
+            width: 100px;
+        }
+        .logo h1{
+            margin-bottom:20px;
+            text-align: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .contact-info div {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info img {
+            height: 20px;
+            margin-right: 5px;
+        }
+        
+        .search-social {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .search-social input {
+            padding: 5px;
+        }
+        
+        .search-social button {
+            padding: 5px 10px;
+        }
+        
+        .social-icons img {
+            height: 20px;
+            margin-left: 10px;
+        }
+        
+        .main-nav {
+            display: flex;
+            justify-content: space-around;
+            background-color:rgb(5, 5, 48);
+            padding: 10px;
+        }
+        
+        .main-nav a {
+            text-align: end;
+            padding: 10px 20px;
+            color:rgb(246, 245, 245);
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: large;
+        }
+        
+        .main-nav a:hover {
+            background-color: #ccc;
+        }
+        
+
+        .container {
+             width: 90%;
+             max-width: 1200px;
+             margin: 20px auto;
+        }
+
+        .medicine-category {
+            margin-bottom: 40px;
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .medicine-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .medicine-card {
+            background: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .medicine-card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .medicine-card h4 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .medicine-card p {
+            font-size: 16px;
+            color: #666;
+
+        }
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-bottom: 500px;
+          padding-bottom: 500px;
+        }
+
+        th, td {
+          padding: 10px;
+          text-align: left;
+          border: 1px solid #ddd;
+        }
+
+        th {
+          background-color: #f4f4f4;
+          font-weight: bold;
+        }
+
+        #totalPrice {
+          font-size: 20px;
+          font-weight: bold;
+          margin-top: 10px;
+        }
+
+        button {
+          background-color:rgb(76, 188, 207);
+          color: black;
+          padding: 10px 20px;
+          border: 1px;
+          cursor: pointer;
+          margin-top: 20px;
+          font-size: 16px;
+          font-weight: bold;
+        }
+
+        button:hover {
+          background-color:rgb(76, 188, 207);
+          font-weight: bold;
+        }
+
+        button[type="button"] {
+          background-color:rgb(76, 188, 207);
+          color: black;
+          padding: 15px 20px;
+          border: 1px;
+          cursor: pointer;
+          font-size: 16px;
+          width: 100%;
+          margin-top: 10px;
+          border-radius: 5px;
+          font-weight: bold;
+        }
+
+        button[type="button"]:hover {
+          background-color:rgb(76, 188, 207);
+          font-weight: bold;
+        }
+
+        .add-to-cart {
+        background-color: #4CAF50; /* Green background */
+        color: rgb(8, 1, 1); /* White text */
+        border: none;
+        padding: 10px 20px;
+        margin-top: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+        transition: background-color 0.3s ease;
+      }
+
+      .add-to-cart:hover {
+        background-color: rgb(76, 188, 207); /* Darker green on hover */
+      }
+
+
+       
+            /* Footer Styles */
+          footer {
+            background-color: #585656;
+            padding: 20px;
+            border-top: 3px solid #ccc;
+        }
+        
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .footer-logo, .footer-social, .footer-address, .footer-contact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .footer-logo img {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .footer-social span {
+            margin: 0 10px;
+        }
+        
+        .footer-social img {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .footer-address p, .footer-contact p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .footer-contact img {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        </style>
+      </head>
+    <body>
+        <header>
+            <div class="top-bar">
+                <div class="logo">
+                    <img src="./images/HOME PAGE/Logo.png" alt="Logo">
+                    <h1 class="hospital-name">HEAVEN OF HEALTH</h1>
+                </div>
+                
+                <div class="search-social">
+                    <input type="text" placeholder="Search...">
+                    <button>Search</button>
+                    <div class="social-icons">
+                        <a href="#"><img src="./images/HOME PAGE/insta logo.webp" alt="Instagram"></a>
+                        <a href="#"><img src="./images/HOME PAGE/facebook_logo.webp" alt="Facebook"></a>
+                    </div>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <a href="./index.html">Home</a>
+                <a href="./aboutus.html">About Us</a>
+                <a href="./services.html">Services</a>
+                <a href="./doctors.html">Doctors</a>
+                <a href="./appoinments.html">Appointments</a>
+                <a href="./pharmacy order.html">Pharmacy</a>
+                <a href="./contact.html">Contact Us</a>
+            </nav>
+        </header>
+        
+
+        <div class="container">
+            <h1>Order Your Medicines</h1>
+
+        <div class="container">
+            <!-- Analgesics -->
+            <div class="medicine-category">
+              <h3>Analgesics</h3>
+              <div class="medicine-grid">
+                <div class="medicine-card">
+                  <img src="./images/PHARMACY/Adiflam.jpg" alt="Adiflam Sr 100mg">
+                  <h4>Adiflam Sr 100mg</h4>
+                  <p>LKR 10.00</p>
+                  <input type="number" id="Adiflam Sr-qty" value="1" min="1">
+                  <button onclick="addToCart('Adiflam Sr', 10, 'Adiflam Sr-qty')">Add to Cart</button>
+
+                </div>
+
+                <div class="medicine-card">
+                  <img src="./images/PHARMACY/Baclon.jpg" alt="Baclon 5mg">
+                  <h4>Baclon 5mg</h4>
+                  <p>LKR 24.25</p>
+                  <input type="number" id="Baclon-qty" value="1" min="1">
+                  <button onclick="addToCart('Baclon', 24, 'Baclon-qty')">Add to Cart</button>
+                  
+
+                </div>
+
+                <div class="medicine-card">
+                  <img src="./images/PHARMACY/Celcox.jpg" alt="Celcox 200mg">
+                  <h4>Celcox 200mg</h4>
+                  <p>LKR 38.00</p>
+                  <input type="number" id="Celcox 200mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Celcox 200mg', 38, 'Celcox 200mg-qty')">Add to Cart</button>
+                </div>
+
+                <div class="medicine-card">
+                  <img src="./images/PHARMACY/Celcoxx_100.jpg" alt="Celcoxx 100mg">
+                  <h4>Celcoxx 100mg</h4>
+                  <p>LKR 38.00</p>
+                  <input type="number" id="Baclon-qty" value="1" min="1">
+                  <button onclick="addToCart('Baclon', 24, 'Baclon-qty')">Add to Cart</button>
+                </div>
+
+                <div class="medicine-card">
+                  <img src="./images/PHARMACY/Relaxinz.jpg" alt="Relaxin 3mg">
+                  <h4>Relaxin 3mg</h4>
+                  <p>LKR 15.50</p>
+                  <input type="number" id="Relaxin 3mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Relaxin 3mg', 15.50, 'Relaxin 3mg-qty')">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Antibiotics -->
+        <div class="medicine-category">
+            <h3>Antibiotics</h3>
+            <div class="medicine-grid">
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Remycin.jpg" alt="Remycin 100mg">
+                <h4>Remycin 100mg</h4>
+                <p>LKR 20.00</p>
+                <input type="number" id="Remycin 100mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Remycin 100mg', 20, 'Remycin 100mg-qty')">Add to Cart</button>
+
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Sporidex.jpg" alt="Sporidex 250mg">
+                <h4>Sporidex 250mg</h4>
+                <p>LKR 16.27</p>
+                <input type="number" id="Sporidex 250mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Sporidex 250mg', 16.27, 'Sporidex 250mg-qty')">Add to Cart</button>
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Moxiclav.jpg" alt="Moxiclav CV 375">
+                <h4>Moxiclav CV 375</h4>
+                <p>LKR 4.72</p>
+                <input type="number" id="Moxiclav CV 375-qty" value="1" min="1">
+                  <button onclick="addToCart('Moxiclav CV 375', 4.72, 'Moxiclav CV 375-qty')">Add to Cart</button>
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Amoxicilin.jpg" alt="Amoxycillin 250mg">
+                <h4>Amoxycillin 250mg</h4>
+                <p>LKR 15.22</p>
+                <input type="number" id="Amoxycillin 250mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Amoxycillin 250mg', 15.22, 'Amoxycillin 250mg-qty')">Add to Cart</button>
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/AZITHRO.jpg" alt="Azithro 500mg">
+                <h4>Azithro 500mg</h4>
+                <p>LKR 19.26</p>
+                <input type="number" id="Azithro 500mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Azithro 500mg', 19.26, 'Azithro 500mg-qty')">Add to Cart</button>
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Azrr.jpg" alt="Azee 500mg">
+                <h4>Azee 500mg</h4>
+                <p>LKR 25.25</p>
+                <input type="number" id="Azee 500mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Azee 500mg', 25.25, 'Azee 500mg-qty')">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Antidepressants Section -->
+        <div class="medicine-category">
+            <h3>Antidepressants</h3>
+            <div class="medicine-grid">
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Pantoprazole.jpg" alt="Pantoprazole 20mg">
+                <h4>Pantoprazole 20mg</h4>
+                <p>Price: $10.33</p>
+                <input type="number" id="Pantoprazole 20mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Pantoprazole 20mg', 10.33, 'Pantoprazole 20mg-qty')">Add to Cart</button>
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/fluoxetine.jpg" alt="Fluoxetine 20mg">
+                <h4>Fluoxetine 20mg</h4>
+                <p>Price: $15.12</p>
+                <input type="number" id="Fluoxetine 20mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Fluoxetine 20mg', 15.12, 'Fluoxetine 20mg-qty')">Add to Cart</button>
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Sertraline.jpg" alt="Sertraline 50mg">
+                <h4>Sertraline 50mg</h4>
+                <p>Price: $2.50</p>
+                <input type="number" id="Sertraline 50mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Sertraline 50mg', 2.50, 'Sertraline 50mg-qty')">Add to Cart</button>
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Prodep.jpg" alt="Prodep 20mg">
+                <h4>Prodep 20mg</h4>
+                <p>Price: $24.10</p>
+                <input type="number" id="Prodep 20mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Prodep 20mg', 24, 'Prodep 20mg-qty')">Add to Cart</button>
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/nsi.jpg" alt="NSI 180mg">
+                <h4>NSI 180mg</h4>
+                <p>Price: $33.50</p>
+                <input type="number" id="NSI 180mg-qty" value="1" min="1">
+                  <button onclick="addToCart('NSI 180mg', 33.50, 'NSI 180mg-qty')">Add to Cart</button>
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Nexito.jpg" alt="Nexitlo 10mg">
+                <h4>Nexitlo 10mg</h4>
+                <p>Price: $6.15</p>
+                <input type="number" id="Nexitlo 10mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Nexitlo 10mg', 6.15, 'Nexitlo 10mg-qty')">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Antihistamines Section -->
+        <div class="medicine-category">
+            <h3>Antihistamines</h3>
+            <div class="medicine-grid">
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Amitone.jpg" alt="Amitone 1mg">
+                <h4>Amitone 1mg</h4>
+                <p>Price: $12.74</p>
+                <input type="number" id="Amitone 1mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Amitone 1mg', 12.74, 'Amitone 1mg-qty')">Add to Cart</button>
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Asthafen.jpg" alt="Asthafen 1mg">
+                <h4>Asthafen 1mg</h4>
+                <p>Price: $4.48</p>
+                <input type="number" id="Asthafen 1mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Asthafen 1mg', 4.48, 'Asthafen 1mg-qty')">Add to Cart</button>
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Rupa.jpg" alt="Rupa 10mg">
+                <h4>Rupa 10mg</h4>
+                <p>Price: $4.05</p>
+                <input type="number" id="Rupa 10mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Rupa 10mg', 4.05, 'Rupa 10mg-qty')">Add to Cart</button>
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Fexigra.jpg" alt="Fexigra 180mg">
+                <h4>Zyncet 20mg</h4>
+                <p>Price: $4.23</p>
+                <input type="number" id="Zyncet 20mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Zyncet 20mg', 4.23, 'Zyncet 20mg-qty')">Add to Cart</button>
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Zyncet.jpg" alt="Zyncet 10mg">
+                <h4>Zyncet 10mg</h4>
+                <p>Price: $9.36</p>
+                <input type="number" id="Zyncet 10mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Zyncet 10mg', 9.36, 'Zyncet 10mg-qty')">Add to Cart</button>
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/loratadine.jpeg" alt="Loratadine 10mg">
+                <h4>Loratadine 10mg</h4>
+                <p>Price: $8.00</p>
+                <input type="number" id="Loratadine 10mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Loratadine 10mg', 8.00, 'Loratadine 10mg-qty')">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Antihypertensives Section -->
+        <div class="medicine-category">
+            <h3>Antihypertensives</h3>
+            <div class="medicine-grid">
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Advant.jpg" alt="Advant 16mg">
+                <h4>Advant 16mg</h4>
+                <p>Price: $4.50</p>
+                <input type="number" id="Advant 16mg-qty" value="1" min="1">
+                  <button onclick="addToCart('BaAdvant 16mg', 4.50, 'Advant 16mg-qty')">Add to Cart</button>
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Advant 8.jpg" alt="Advant 8mg">
+                <h4>Advant 8mg</h4>
+                <p>Price: $4.80</p>
+                <input type="number" id="Advant 8mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Advant 8mg', 48.0, 'Advant 8mg-qty')">Add to Cart</button>
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Alkay.jpg" alt="Alkay Er 600mg">
+                <h4>Alkay Er 600mg</h4>
+                <p>Price: $1.32</p>
+                <input type="number" id="Alkay Er 600mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Alkay Er 600mg', 1.32, 'Alkay Er 600mg-qty')">Add to Cart</button>
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Amlodac.jpg" alt="Amlodac 5mg">
+                <h4>Amlodac 5mg</h4>
+                <p>Price: $1.14</p>
+                <input type="number" id="Amlodac 5mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Amlodac 5mg', 1.14, 'Amlodac 5mg-qty')">Add to Cart</button>
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Arimee.jpeg" alt="Arimee 1mg">
+                <h4>Arimee 1mg</h4>
+                <p>Price: $2.10</p>
+                <input type="number" id="Arimee 1mg-qty" value="1" min="1">
+                <button onclick="addToCart('Arimee 1mg', 2.10, 'Arimee 1mg-qty')">Add to Cart</button>
+              </div>
+
+              <div class="medicine-card">
+                <img src="./images/PHARMACY/Dilcardia.jpg" alt="Diltiazem 30mg">
+                <h4>Diltiazem 30mg</h4>
+                <p>Price: $1.42</p>
+                <input type="number" id="Diltiazem 30mg-qty" value="1" min="1">
+                  <button onclick="addToCart('Diltiazem 30mg', 1.42, 'Diltiazem 30mg-qty')">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+     <table id="cart-table">
+      <thead>
+          <tr>
+              <th>Item</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>Action</th>
+          </tr>
+      </thead>
+      <tbody>
+          <!-- Cart items will be dynamically added here -->
+      </tbody>
+      <br>
+
+      <p><strong><span id="total-price"></span></strong></p>
+    <br>
+    <a href="buy now.html" class="add-to-cart-btn">
+
+
+    <button onclick="buyNow()">Buy Now</button>
+    
+<br><br>
+
+       <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="./images/HOME PAGE/Logo.png" alt="Logo" class="logo-img">
+                <p>LOGO</p>
+            </div>
+            <div class="footer-social">
+                <span><img src="./images/HOME PAGE/facebook_logo.webp" alt="Facebook"></span>
+                <a href="https://web.facebook.com/help?_rdc=1&_rdr">Facebook</a>
+                <span><img src="./images/HOME PAGE/insta logo.webp" alt="Instagram"></span>
+                <a href="https://www.instagram.com/accounts/login/?hl=en">Instagram</a>
+                <span><img src="./images/HOME PAGE/whatsapp logo.png" alt="WhatsApp"></span>
+                <a href="https://www.whatsapp.com/">WhatsApp</a>
+            </div>
+            <div class="footer-address">
+                <p>ADDRESS</p>
+            <p>123 Wellness Avenue
+                Care City,</p>
+            <p>HC 45678 United States.</p>
+            </div>
+            <div class="footer-contact">
+                <p><img src="./images/HOME PAGE/phone-call.png" alt="Phone Icon"> 0112546885</p>
+                <p><img src="./images/HOME PAGE/email.png" alt="Email Icon">heavenofhealth@gmail.com</p>
+            </div>
+        </div>
+      </footer> 
+
+      <script src="./HOME PAGE/pharmacy java.js" DEFER></script>
+ 
+
+
+    
+</body>
+</html>
+

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Now </title>
+    <style>
+
+                /* General Styling */
+                * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color:rgb(217, 245, 253);
+        }
+        
+        header {
+            width: 100%;
+            border-bottom: 2px solid #0e0e0e;
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: lightskyblue;
+        }
+        
+        .logo img {
+            margin-left: 100px;
+            height: 100px;
+            width: 100px;
+        }
+        .logo h1{
+            margin-bottom:20px;
+            text-align: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .contact-info div {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info img {
+            height: 20px;
+            margin-right: 5px;
+        }
+        
+        .search-social {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .search-social input {
+            padding: 5px;
+        }
+        
+        .search-social button {
+            padding: 5px 10px;
+        }
+        
+        .social-icons img {
+            height: 20px;
+            margin-left: 10px;
+        }
+        
+        .main-nav {
+            display: flex;
+            justify-content: space-around;
+            background-color:rgb(5, 5, 48);
+            padding: 10px;
+        }
+        
+        .main-nav a {
+            text-align: end;
+            padding: 10px 20px;
+            color:rgb(246, 245, 245);
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: large;
+        }
+        
+        .main-nav a:hover {
+            background-color: #ccc;
+        }
+
+
+        /* Order Form Styling */
+        form {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        background-color:rgb(172, 216, 245);
+        }
+
+        input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        }
+
+        input[type="text"]:focus {
+        border-color:rgb(76, 188, 207);
+        }
+
+        button[type="button"] {
+        background-color:rgb(76, 188, 207);
+        color: black;
+        padding: 15px 20px;
+        border: 1px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+        margin-top: 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        }
+
+        button[type="button"]:hover {
+        background-color:rgb(76, 188, 207);
+        font-weight: bold;
+        }
+
+
+        /* Order Form Styling */
+        form {
+          max-width: 600px;
+          margin: 20px auto;
+          padding: 20px;
+          border: 2px solid #ddd;
+          border-radius: 10px;
+          background-color: #f9f9f9;
+        }
+
+        input[type="text"] {
+          width: 100%;
+          padding: 12px;
+          margin: 8px 0;
+          border: 2px solid #ccc;
+          border-radius: 4px;
+          font-size: 16px;
+        }
+
+        input[type="text"]:focus {
+          border-color:rgb(76, 188, 207);
+        }
+
+        /* Footer Styles */
+        footer {
+        background-color: #585656;
+        padding: 20px;
+        border-top: 3px solid #ccc;
+    }
+    
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    .footer-logo, .footer-social, .footer-address, .footer-contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+    }
+    
+    .footer-logo img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .footer-social span {
+        margin: 0 10px;
+    }
+    
+    .footer-social img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .footer-address p, .footer-contact p {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+    
+    .footer-contact img {
+        width: 16px;
+        height: 16px;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="top-bar">
+            <div class="logo">
+                <img src="./images/HOME PAGE/Logo.png" alt="Logo">
+                <h1 class="hospital-name">HEAVEN OF HEALTH</h1>
+            </div>
+            
+            <div class="search-social">
+                <input type="text" placeholder="Search...">
+                <button>Search</button>
+                <div class="social-icons">
+                    <a href="#"><img src="./images/HOME PAGE/insta logo.webp" alt="Instagram"></a>
+                    <a href="#"><img src="./images/HOME PAGE/facebook_logo.webp" alt="Facebook"></a>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <a href="./index.html">Home</a>
+            <a href="./aboutus.html">About Us</a>
+            <a href="./services.html">Services</a>
+            <a href="./doctors.html">Doctors</a>
+            <a href="./appoinments.html">Appointments</a>
+            <a href="./pharmacy order.html">Pharmacy</a>
+            <a href="./contact.html">Contact Us</a>
+        </nav>
+    </header><br>
+
+    <h1>Complete Your Purchase</h1>
+
+    <form id="payment-form">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" required><br><br>
+
+        <label for="address">Delivery Address:</label>
+        <input type="text" id="address" required><br><br>
+
+        <label for="payment">Payment Method:</label>
+            <select id="payment" required>
+                <option value="cash">Cash</option>
+                <option value="card">Card</option>
+            </select><br>
+
+        <button type="button" onclick="processPayment()">Pay</button>
+    </form>
+    <footer>
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="./images/HOME PAGE/Logo.png" alt="Logo" class="logo-img">
+                    <p>LOGO</p>
+                </div>
+                <div class="footer-social">
+                    <span><img src="./images/HOME PAGE/facebook_logo.webp" alt="Facebook"></span>
+                    <a href="https://web.facebook.com/help?_rdc=1&_rdr">Facebook</a>
+                    <span><img src="./images/HOME PAGE/insta logo.webp" alt="Instagram"></span>
+                    <a href="https://www.instagram.com/accounts/login/?hl=en">Instagram</a>
+                    <span><img src="./images/HOME PAGE/whatsapp logo.png" alt="WhatsApp"></span>
+                    <a href="https://www.whatsapp.com/">WhatsApp</a>
+                </div>
+                <div class="footer-address">
+                    <p>ADDRESS</p>
+                <p>123 Wellness Avenue
+                    Care City,</p>
+                <p>HC 45678 United States.</p>
+                </div>
+                <div class="footer-contact">
+                    <p><img src="./images/HOME PAGE/phone-call.png" alt="Phone Icon"> 0112546885</p>
+                    <p><img src="./images/HOME PAGE/email.png" alt="Email Icon">heavenofhealth@gmail.com</p>
+                </div>
+            </div>
+    </footer>
+
+    <script>
+        function processPayment() {
+            const name = document.getElementById("name").value;
+            const address = document.getElementById("address").value;
+            const payment = document.getElementById("payment").value;
+
+            if (name && address && payment) {
+                // Calculate delivery date (example: 2 days from now)
+                const deliveryDate = new Date();
+                deliveryDate.setDate(deliveryDate.getDate() + 2);  // 2 days from today
+
+                // Format delivery date as YYYY-MM-DD
+                const formattedDate = deliveryDate.toISOString().split('T')[0];
+
+                // Show the pop-up message
+                alert(`Thank you for your purchase, ${name}! Your order will be delivered on ${formattedDate}.`);
+                
+                // Optionally, redirect to a thank you page or back to home
+                // window.location.href = "thank_you.html"; // Uncomment if you have a thank you page
+            } else {
+                alert("Please fill in all fields.");
+            }
+        }
+    </script>
+       
+    
+</body>
+</html>
